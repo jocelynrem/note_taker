@@ -2,15 +2,12 @@ const fs = require("fs");
 const db = require("./db");
 
 
-let note = {
-    title: "more Title",
-    text: "some other text"
-};
+db.push();
 
-db.push(note);
-
-fs.writeFile("db.json", JSON.stringify(note), err => {
+updateData = () => {
+   fs.writeFile("db.json", JSON.stringify(newNote), err => {
     if (err) throw err;
     console.log("Done writing"); 
     return true
-});
+}); 
+}
