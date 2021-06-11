@@ -9,4 +9,10 @@ module.exports = app => {
         store.updateData();
         res.json('true');
     });
+
+    app.delete("/api/notes/:id", (req, res) => {
+        notesData.splice(req.params.id);
+        store.updateData();
+        res.json("true");
+    })
 }
