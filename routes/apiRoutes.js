@@ -10,10 +10,9 @@ module.exports = app => {
         res.json("true");
     });
 
-    app.delete("/api/notes/:id", (req, res) => {
-        notesData.splice({id: req.params.id});
-        console.log('req.params.id:', req.params.id)
-        store.updateData();
+    app.delete("/api/notes/:id", (req, res, next) => {
+        notesData.splice({id: req.params.id}, 1);
+        store.updateData()
         res.json("true")
     })
 }
