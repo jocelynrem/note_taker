@@ -1,4 +1,5 @@
 const notesData = require("../db/db.json");
+const store = require("../db/store.js");
 
 module.exports = app => {
     app.get("/api/notes", (req, res) => res.json(notesData));
@@ -6,7 +7,7 @@ module.exports = app => {
     app.post("/api/notes", (req, res) => {
           notesData.push(req.body);
           console.log(notesData)
+          store.updateData();
           res.json('true');
-  
       });
 }
