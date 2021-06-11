@@ -6,7 +6,6 @@ module.exports = app => {
 
     app.post("/api/notes", (req, res) => {
         notesData.push(req.body);
-        console.log(notesData)
         store.updateData();
         res.json('true');
     });
