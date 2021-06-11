@@ -7,12 +7,13 @@ module.exports = app => {
     app.post("/api/notes", (req, res) => {
         notesData.push(req.body);
         store.updateData();
-        res.json('true');
+        res.json("true");
     });
 
     app.delete("/api/notes/:id", (req, res) => {
         notesData.splice(req.params.id);
+        console.log('req.params.id:', req.params.id)
         store.updateData();
-        res.json("true");
+        res.json("true")
     })
 }
