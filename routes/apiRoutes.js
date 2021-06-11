@@ -11,7 +11,7 @@ module.exports = app => {
     });
 
     app.delete("/api/notes/:id", (req, res) => {
-        notesData.splice(req.params.id);
+        notesData.splice({id: req.params.id});
         console.log('req.params.id:', req.params.id)
         store.updateData();
         res.json("true")
